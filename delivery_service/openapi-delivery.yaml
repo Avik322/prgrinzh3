@@ -1,0 +1,261 @@
+﻿{
+    "openapi":  "3.1.0",
+    "info":  {
+                 "title":  "FastAPI",
+                 "version":  "0.1.0"
+             },
+    "paths":  {
+                  "/deliveries":  {
+                                      "post":  {
+                                                   "summary":  "Create Delivery",
+                                                   "operationId":  "create_delivery_deliveries_post",
+                                                   "requestBody":  {
+                                                                       "content":  {
+                                                                                       "application/json":  {
+                                                                                                                "schema":  {
+                                                                                                                               "$ref":  "#/components/schemas/DeliveryIn"
+                                                                                                                           }
+                                                                                                            }
+                                                                                   },
+                                                                       "required":  true
+                                                                   },
+                                                   "responses":  {
+                                                                     "200":  {
+                                                                                 "description":  "Successful Response",
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "$ref":  "#/components/schemas/DeliveryOut"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             },
+                                                                     "422":  {
+                                                                                 "description":  "Validation Error",
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             }
+                                                                 },
+                                                   "security":  [
+                                                                    {
+                                                                        "HTTPBearer":  [
+
+                                                                                       ]
+                                                                    }
+                                                                ]
+                                               }
+                                  },
+                  "/deliveries/sender/{sender_id}":  {
+                                                         "get":  {
+                                                                     "summary":  "Deliveries By Sender",
+                                                                     "operationId":  "deliveries_by_sender_deliveries_sender__sender_id__get",
+                                                                     "security":  [
+                                                                                      {
+                                                                                          "HTTPBearer":  [
+
+                                                                                                         ]
+                                                                                      }
+                                                                                  ],
+                                                                     "parameters":  [
+                                                                                        {
+                                                                                            "name":  "sender_id",
+                                                                                            "in":  "path",
+                                                                                            "required":  true,
+                                                                                            "schema":  {
+                                                                                                           "type":  "integer",
+                                                                                                           "title":  "Sender Id"
+                                                                                                       }
+                                                                                        }
+                                                                                    ],
+                                                                     "responses":  {
+                                                                                       "200":  {
+                                                                                                   "description":  "Successful Response",
+                                                                                                   "content":  {
+                                                                                                                   "application/json":  {
+                                                                                                                                            "schema":  {
+                                                                                                                                                           "type":  "array",
+                                                                                                                                                           "items":  {
+                                                                                                                                                                         "$ref":  "#/components/schemas/DeliveryOut"
+                                                                                                                                                                     },
+                                                                                                                                                           "title":  "Response Deliveries By Sender Deliveries Sender  Sender Id  Get"
+                                                                                                                                                       }
+                                                                                                                                        }
+                                                                                                               }
+                                                                                               },
+                                                                                       "422":  {
+                                                                                                   "description":  "Validation Error",
+                                                                                                   "content":  {
+                                                                                                                   "application/json":  {
+                                                                                                                                            "schema":  {
+                                                                                                                                                           "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                                       }
+                                                                                                                                        }
+                                                                                                               }
+                                                                                               }
+                                                                                   }
+                                                                 }
+                                                     },
+                  "/deliveries/receiver/{receiver_id}":  {
+                                                             "get":  {
+                                                                         "summary":  "Deliveries By Receiver",
+                                                                         "operationId":  "deliveries_by_receiver_deliveries_receiver__receiver_id__get",
+                                                                         "security":  [
+                                                                                          {
+                                                                                              "HTTPBearer":  [
+
+                                                                                                             ]
+                                                                                          }
+                                                                                      ],
+                                                                         "parameters":  [
+                                                                                            {
+                                                                                                "name":  "receiver_id",
+                                                                                                "in":  "path",
+                                                                                                "required":  true,
+                                                                                                "schema":  {
+                                                                                                               "type":  "integer",
+                                                                                                               "title":  "Receiver Id"
+                                                                                                           }
+                                                                                            }
+                                                                                        ],
+                                                                         "responses":  {
+                                                                                           "200":  {
+                                                                                                       "description":  "Successful Response",
+                                                                                                       "content":  {
+                                                                                                                       "application/json":  {
+                                                                                                                                                "schema":  {
+                                                                                                                                                               "type":  "array",
+                                                                                                                                                               "items":  {
+                                                                                                                                                                             "$ref":  "#/components/schemas/DeliveryOut"
+                                                                                                                                                                         },
+                                                                                                                                                               "title":  "Response Deliveries By Receiver Deliveries Receiver  Receiver Id  Get"
+                                                                                                                                                           }
+                                                                                                                                            }
+                                                                                                                   }
+                                                                                                   },
+                                                                                           "422":  {
+                                                                                                       "description":  "Validation Error",
+                                                                                                       "content":  {
+                                                                                                                       "application/json":  {
+                                                                                                                                                "schema":  {
+                                                                                                                                                               "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                                           }
+                                                                                                                                            }
+                                                                                                                   }
+                                                                                                   }
+                                                                                       }
+                                                                     }
+                                                         }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "DeliveryIn":  {
+                                                          "properties":  {
+                                                                             "sender_id":  {
+                                                                                               "type":  "integer",
+                                                                                               "title":  "Sender Id"
+                                                                                           },
+                                                                             "receiver_id":  {
+                                                                                                 "type":  "integer",
+                                                                                                 "title":  "Receiver Id"
+                                                                                             },
+                                                                             "parcel_id":  {
+                                                                                               "type":  "integer",
+                                                                                               "title":  "Parcel Id"
+                                                                                           }
+                                                                         },
+                                                          "type":  "object",
+                                                          "required":  [
+                                                                           "sender_id",
+                                                                           "receiver_id",
+                                                                           "parcel_id"
+                                                                       ],
+                                                          "title":  "DeliveryIn"
+                                                      },
+                                       "DeliveryOut":  {
+                                                           "properties":  {
+                                                                              "sender_id":  {
+                                                                                                "type":  "integer",
+                                                                                                "title":  "Sender Id"
+                                                                                            },
+                                                                              "receiver_id":  {
+                                                                                                  "type":  "integer",
+                                                                                                  "title":  "Receiver Id"
+                                                                                              },
+                                                                              "parcel_id":  {
+                                                                                                "type":  "integer",
+                                                                                                "title":  "Parcel Id"
+                                                                                            },
+                                                                              "id":  {
+                                                                                         "type":  "integer",
+                                                                                         "title":  "Id"
+                                                                                     }
+                                                                          },
+                                                           "type":  "object",
+                                                           "required":  [
+                                                                            "sender_id",
+                                                                            "receiver_id",
+                                                                            "parcel_id",
+                                                                            "id"
+                                                                        ],
+                                                           "title":  "DeliveryOut"
+                                                       },
+                                       "HTTPValidationError":  {
+                                                                   "properties":  {
+                                                                                      "detail":  {
+                                                                                                     "items":  {
+                                                                                                                   "$ref":  "#/components/schemas/ValidationError"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Detail"
+                                                                                                 }
+                                                                                  },
+                                                                   "type":  "object",
+                                                                   "title":  "HTTPValidationError"
+                                                               },
+                                       "ValidationError":  {
+                                                               "properties":  {
+                                                                                  "loc":  {
+                                                                                              "items":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "string"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "integer"
+                                                                                                                          }
+                                                                                                                      ]
+                                                                                                        },
+                                                                                              "type":  "array",
+                                                                                              "title":  "Location"
+                                                                                          },
+                                                                                  "msg":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Message"
+                                                                                          },
+                                                                                  "type":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Error Type"
+                                                                                           }
+                                                                              },
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "loc",
+                                                                                "msg",
+                                                                                "type"
+                                                                            ],
+                                                               "title":  "ValidationError"
+                                                           }
+                                   },
+                       "securitySchemes":  {
+                                               "HTTPBearer":  {
+                                                                  "type":  "http",
+                                                                  "scheme":  "bearer"
+                                                              }
+                                           }
+                   }
+}
